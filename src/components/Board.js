@@ -1,23 +1,17 @@
-import React from 'react'
-import Piece from './Piece';
+import React from 'react';
 
-const cellColor = (row, col) => (row % 2) === (col % 2) ? 'var(--lite-cell)' : 'var(--dark-cell)';
+import Square from './Square';
 
 // state describes the position of the pieces
-export default function Board({ state }) {
+export default function Board({ state, onClick }) {
   return (
-    <div>
+    <div className="board" onClick={onClick}>
       {state.map((row, indexRow) => (
-        <div className="row">
-          {row.map((cell, indexCol) => (
-            <div
-              className='cell'
-              key={indexRow * 8 + indexCol}
-              style={{ backgroundColor: cellColor(indexRow, indexCol) }}
-            >
-              <Piece type={cell} />
-            </div>
-          ))
+        <div className="row" key={indexRow}>
+          {
+            row.map((piece, indexCol) => (
+              <Square row={indexRow} col={indexCol} piece={piece} key={indexRow * 8 + indexCol} />
+            ))
           }
         </div>
       ))}

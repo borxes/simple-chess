@@ -8,7 +8,7 @@ body {
 .cell {
   font-size: 180%;
   display: inline-flex;
-  box-sizing: content-box;
+  box-sizing: border-box;
   min-height: var(--cell-size);
   min-width: var(--cell-size);
   border: 1px black solid;

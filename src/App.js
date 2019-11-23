@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Board from './components/Board';
+import * as pieces from './constants/chess';
+
 import './App.css';
+
+const {
+  WHITE_KING, WHITE_ROOK, WHITE_QUEEN, WHITE_BISHOP, WHITE_KNIGHT, WHITE_PAWN,
+  BLACK_KING, BLACK_ROOK, BLACK_QUEEN, BLACK_BISHOP, BLACK_KNIGHT, BLACK_PAWN,
+  EMPTY } = pieces;
+
+const emptyRow = Array(8).fill(EMPTY);
+
+const initialBoard = [
+  [BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_KING,
+    BLACK_QUEEN, BLACK_BISHOP, BLACK_KNIGHT, BLACK_ROOK],
+  [BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN,
+    BLACK_PAWN, BLACK_PAWN, BLACK_PAWN],
+  emptyRow, emptyRow, emptyRow, emptyRow,
+  [WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN,
+    WHITE_PAWN, WHITE_PAWN, WHITE_PAWN],
+  [WHITE_ROOK, WHITE_KNIGHT, WHITE_BISHOP, WHITE_KING,
+    WHITE_QUEEN, WHITE_BISHOP, WHITE_KNIGHT, WHITE_ROOK],
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      This is chess
+      <Board state={initialBoard} />
     </div>
   );
 }

@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { useDrag } from 'react-dnd';
 
-import { EMPTY } from '../constants/chess';
+import { EMPTY } from '../helpers/chess';
 
 const chessSymbols = ['♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟', '\u00A0'];
 
-export default function Piece({ type, row, col }) {
+export default function Piece({ type, row, col, draggable }) {
 
   const [{ isDragging }, drag] = useDrag({
     item: { type: 'Piece' },
     collect: monitor => ({
       isDragging: !!monitor.isDragging(),
     }),
-    canDrag: monitor => type !== EMPTY,
+    canDrag: monitor => draggable && type !== EMPTY,
     begin: monitor => {
       return { row, col, type };
     }
@@ -32,4 +31,7 @@ export default function Piece({ type, row, col }) {
 
 Piece.propTypes = {
   type: PropTypes.number.isRequired,
+  row: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired,
+  draggable: PropTypes.bool.isRequired,
 };

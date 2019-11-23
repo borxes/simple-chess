@@ -2,7 +2,22 @@ body {
   font-family: "Arial Unicode MS";
   --dark-cell: #b58863;
   --lite-cell: #f0d9b5;
+  --cell-over: #f6da63;
   --cell-size: 50px;
+}
+
+.status,
+.restart-button {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  text-decoration: solid;
+}
+
+.board {
+  padding-top: 20px;
+  width: 400px;
+  margin: auto;
 }
 
 .cell {
@@ -14,4 +29,8 @@ body {
   border: 1px black solid;
   justify-content: center;
   align-items: center;
+}
+
+.cell.cell-over {
+  background-color: var(--cell-over) !important;
 }

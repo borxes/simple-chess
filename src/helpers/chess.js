@@ -11,3 +11,13 @@ export const BLACK_BISHOP = 9;
 export const BLACK_KNIGHT = 10;
 export const BLACK_PAWN = 11;
 export const EMPTY = 12;
+
+export const [NONE, WHITE, BLACK] = [0, 1, 2];
+
+export const pieceColor = piece => {
+  if (piece === EMPTY)
+    return NONE;
+  else
+    return [WHITE_KING, WHITE_ROOK, WHITE_QUEEN, WHITE_BISHOP,
+      WHITE_KNIGHT, WHITE_PAWN].includes(piece) ? WHITE : BLACK;
+};

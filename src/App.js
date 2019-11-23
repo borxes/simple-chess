@@ -8,7 +8,6 @@ import './App.css';
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      This is chess
       <Chess />
     </DndProvider>
   );
